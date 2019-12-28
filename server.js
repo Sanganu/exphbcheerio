@@ -2,6 +2,7 @@ var express = require("express");
 var exphbs = require("express-handlebars");
 var PORT = 3030;
 var app = express();
+var mongoose = require("./config/connectdb");
 
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
@@ -13,7 +14,7 @@ app.engine("handlebars",
         layoutsDir: __dirname + "/views/layouts/",
         partialsDir:__dirname + "/views/partials/"
     }));
-app.set("view engine",handlebars);
+app.set("view engine","handlebars");
 
 
 
