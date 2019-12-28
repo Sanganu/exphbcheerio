@@ -1,0 +1,14 @@
+<div class = "container">
+    {{#each words}}
+    <div class = "card">
+        <div class="card-header text-center">
+            <h5 class="card-title">{{this.word}}</h5>
+        </div>
+        <div class="card-body">
+            <button class="saveword">Save</button>
+            <p class="card-text">{{this.meaning}}</p>
+            <h6 class="card-text">{{this.grammar}}</h6>
+        </div>
+    </div>
+    {{/each}}
+</div>    
