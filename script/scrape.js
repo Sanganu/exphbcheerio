@@ -1,6 +1,6 @@
 var axios = require("axios");
 var cheerio = require("cheerio");
-
+var db = require("../controllers/words.js")
 var scrape = function(){
     axios.get("https://grammar.yourdictionary.com/spelling-and-word-lists/spelling-bee-study-words.html")
     .then(function(result){
@@ -8,14 +8,15 @@ var scrape = function(){
         console.log("Scraping",);
         $("tr").each(function(i,element){
             let spellit = {
-             link : $(this).find("a")
-                       .attr("href"),
-             word :  $(this).find("a").children("span").text().trim(),
+            word :  $(this).find("a").children("span").text().trim(),
             grammar : $(this).find("h3").children("span").first().text().trim(),
             meaning : $(this).find("h3").children("span").last().text().trim(),
-            
+            link : $(this).find("a")
+                       .attr("href")
             }
-            console.log("Spellit",spellit)
+            console.log("Spellit",spellit);
+            db.newrecords(spellit);
+
         })
         return "Scarpe"
     })

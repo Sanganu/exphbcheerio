@@ -2,7 +2,10 @@ let mongoose= require("mongoose");
 let Schema = mongoose.Schema;
 
 let wordsSchema = new Schema({
-    
+       link:{
+           type:String,
+
+       },
         word : {
             type:String,
             required: true,
@@ -10,7 +13,7 @@ let wordsSchema = new Schema({
                 index : {unique : true}
             }
         },
-        grammer:{
+        grammar:{
             type: String,
             required: true
         },
