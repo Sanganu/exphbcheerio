@@ -13,7 +13,7 @@ module.exports = {
            .then((result) => {
                console.log(result);
                res.json(result)
-           })
+           });
     },
     update: function(req,res){
         db.Words.findOneAndUpdate({_id:req.params.id},{$set:req.body},{new : true})
@@ -22,11 +22,22 @@ module.exports = {
                res.json(result)
            })
     },
-    create: function(req,res){
+    insert: function(req,res){
         db.Words.create(req.body)
            .then((result) => {
-               console.log(result);
+                console.log(result);
                res.json(result)
            })
+    },
+    newrecords: function(data){
+        db.Words.create(data)
+          .then((result) => {
+              console.log(result)
+              return result
+          })
+          .catch((error) => {
+              console.log(error);
+              return error;
+          })
     }
 }

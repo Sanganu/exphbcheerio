@@ -3,6 +3,7 @@ var exphbs = require("express-handlebars");
 var PORT = 3030;
 var app = express();
 var mongoose = require("./config/connectdb");
+var scrape = require("./script/scrape");
 
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
@@ -20,4 +21,6 @@ app.set("view engine","handlebars");
 
 app.listen(PORT,() => {
     console.log(`App listening on PORT ${PORT}`);
+    scrape();
+    console.log("Scrape")
 })
