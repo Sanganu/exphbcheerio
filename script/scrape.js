@@ -8,13 +8,14 @@ var scrape = function(){
         console.log("Scraping",);
         $("tr").each(function(i,element){
             let spellit = {
-            word :  $(this).find("a").children("span").text().trim(),
+             link : $(this).find("a")
+                       .attr("href"),
+             word :  $(this).find("a").children("span").text().trim(),
             grammar : $(this).find("h3").children("span").first().text().trim(),
             meaning : $(this).find("h3").children("span").last().text().trim(),
-            link : $(this).find("a")
-                       .attr("href")
+            
             }
-            console.log("Spellit",spellit);
+           // console.log("Spellit",spellit);
             db.newrecords(spellit);
 
         })
