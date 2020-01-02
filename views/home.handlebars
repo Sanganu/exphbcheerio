@@ -6,12 +6,16 @@
             <h5 class="card-title">{{this.word}}</h5>
         </div>
         <div class="card-body">
-            <button class="saveword">Add to practice</button>
+            <button class="saveword" data-id="{{this._id}}"
+            data-word="{{this.word}}"
+            data-meaning="{{this.meaning}}"
+            data-grammar="{{this.grammar}}"
+            >Add to practice</button>
             <p class="card-text">{{this.meaning}}</p>
             <h6 class="card-text">{{this.grammar}}</h6>
-            {{this._id}}
+            {{!-- {{this._id}}
             {{this.link}}
-            {{this}}
+            {{this}} --}}
         </div>
     </div>
     {{/each}}

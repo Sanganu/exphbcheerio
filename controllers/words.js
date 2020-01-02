@@ -1,9 +1,9 @@
-let db = require("../models");
+let Words = require("../models/Words");
 
 var words = {
     findAll: function(req,res) {
         console.log("controller Records fetch")
-        db.Words.find({}).sort({ createdDate:-1})
+        Words.find({}).sort({ createdDate:-1})
            .then((records) => {
                //console.log(records);
                res.render("home",{words:records});
@@ -14,7 +14,7 @@ var words = {
         });
     },
     delete: function(req,res){
-        db.Words.remove({_id:req.params.id})
+        Words.remove({_id:req.params.id})
            .then((result) => {
                console.log(result);
                res.json(result)
@@ -25,7 +25,7 @@ var words = {
         });
     },
     update: function(req,res){
-        db.Words.findOneAndUpdate({_id:req.params.id},{$set:req.body},{new : true})
+        Words.findOneAndUpdate({_id:req.params.id},{$set:req.body},{new : true})
            .then((result) => {
                console.log(result);
                res.json(result)
@@ -35,8 +35,8 @@ var words = {
             return error;
         })
     },
-    insert: function(req,res){
-        db.Words.create(req.body)
+    create: function(req,res){
+        Words.create(req.body)
            .then((result) => {
                 console.log(result);
                res.json(result)
@@ -47,7 +47,7 @@ var words = {
         })
     },
     newrecords: function(data){
-        db.Words.create(data)
+        Words.create(data)
           .then((result) => {
               console.log(result)
               return result
