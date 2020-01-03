@@ -12,6 +12,7 @@ const practice = {
         })
     },
     create:function(req,res){
+        console.log("pract contro")
         Practice.create(req.body)
         .then((result) => {
             res.json(result)

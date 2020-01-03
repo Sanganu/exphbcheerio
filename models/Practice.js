@@ -1,9 +1,9 @@
 const mongoose = require("mongoose")
-const Schema = mongoose.schema
+const Schema = mongoose.Schema
 
 const practiceschema = new Schema({
     wordid:{
-        type:Schema.Types.ObjectId,
+        type: Schema.Types.ObjectId,
         ref:"Words"
     },
     sentence1:{
@@ -17,5 +17,5 @@ const practiceschema = new Schema({
     }
 })
 
-let Practice = mongoose.model("Practice","practiceschema");
+let Practice = mongoose.model("Practice",practiceschema);
 module.exports = Practice;

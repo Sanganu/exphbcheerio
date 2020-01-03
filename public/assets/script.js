@@ -1,3 +1,24 @@
-$(".saveword").on("click",function(event){
+console.log("JS Script")
+$(".card-body").on("click",".saveword",function(event){
+    event.preventDefault();
+    
+    let data = {
+  
+        wordid : $(this).attr('data-id')
+    }
+    console.log("Id",data)
+   $.ajax({
+       url:"/saved/word",
+       data: data,
+       type: "POST",
+       datatype: "json"}).done(
+       (err,data) => {
+          if (err) console.log("Err&data",err)
+          console.log(data)
+       })
 
 });
+
+function wordsaved(data){
+   console.log(data)
+}

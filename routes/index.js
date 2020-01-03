@@ -1,7 +1,7 @@
 let router = require("express").Router();
 
 let wordscontrollers = require("../controllers/words");
-
+let practicecontroller = require("../controllers/practice")
 // let  apiroutes = require("./apiroutes")
 // let viewroutes = require("./viewroutes");
 // let db = require("../models");
@@ -10,7 +10,7 @@ let wordscontrollers = require("../controllers/words");
 
 
 
-
+//Words
 router.get("/",(req,res) => {
 
      let records = wordscontrollers.findAll(req,res)
@@ -18,7 +18,11 @@ router.get("/",(req,res) => {
         //res.render("home",{words:records});
 });
 
-
+//Practice
+router.post("/saved/word",(req,res) =>{
+     
+    practicecontroller.create(req,res)
+})
 
 
 
