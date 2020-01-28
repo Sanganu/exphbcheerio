@@ -14,8 +14,8 @@ let practicecontroller = require("../controllers/practice")
 router.get("/",(req,res) => {
 
      let records = wordscontrollers.findAll(req,res)
-        //console.log("Records",records);
-        //res.render("home",{words:records});
+    //    console.log("Records",records);
+       
 });
 
 //Practice
@@ -25,6 +25,8 @@ router.post("/saved/word",(req,res) =>{
 })
 
 
-
+router.get("/saved/all",(req,res) => {
+    practicecontroller.findAll(req,res)
+});
 
 module.exports = router;

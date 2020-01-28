@@ -3,14 +3,13 @@ let Words = require("../models/Words");
 var words = {
     findAll: function(req,res) {
         console.log("controller Records fetch")
-        Words.find({}).sort({ createdDate:-1})
+        Words.find({})
            .then((records) => {
-               //console.log(records);
+               console.log(records);
                res.render("home",{words:records});
-           })
-           .catch((error) => {
+           }).catch((error) => {
             console.log(error);
-            return error;
+            // return error;
         });
     },
     delete: function(req,res){
@@ -47,9 +46,10 @@ var words = {
         })
     },
     newrecords: function(data){
+       // console.log("Controller newrecords",data)
         Words.create(data)
           .then((result) => {
-              console.log(result)
+              console.log("word added",result)
               return result
           })
           .catch((error) => {

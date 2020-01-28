@@ -1,10 +1,10 @@
 const Practice = require("../models/Practice");
 
 const practice = {
-    findAll: function(req,res){
-        Practice.find({}.sort({createdDate:-1}))
+    findAll: function(){
+        Practice.find({}.populate("wordid").sort({createdDate:-1}))
         .then((records) => {
-            res.render("",{words:records});
+            return records;
         })
         .catch((error)=> {
             console.log(`Error in fetching words ${error}`);

@@ -1,0 +1,27 @@
+<div class = "container">
+  Saved  handlebars
+    {{#each words}}
+    <div class = "card">
+        <div class="card-header text-center">
+            <h5 class="card-title">{{this.word}}</h5>
+        </div>
+        <div class="card-body">
+            <button class="saveword" data-id="{{this._id}}"
+            data-word="{{this.word}}"
+            data-meaning="{{this.meaning}}"
+            data-grammar="{{this.grammar}}"
+            >Add to practice</button>
+            <p class="card-text">{{this.meaning}}</p>
+            <h6 class="card-text">{{this.grammar}}</h6>
+            <input type=text val={{this.sentence1}} id="sentence1" />
+            <input type="text" val={{this.sentence2}} id ="sentence2"/>
+            <input type="text" val={{this.sentence3}} id="sentence3" />
+            <button id="savesentence" >Save Sentence</button>
+            <h4>Type 3 times</h4>
+            <input type="text" id="word1" />
+            <input type="text" id="word2" />
+            <input type="text" id="word3" />
+        </div>
+    </div>
+    {{/each}}
+</div>    

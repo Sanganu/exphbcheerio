@@ -12,7 +12,7 @@ $(".card-body").on("click",".saveword",function(event){
        data: data,
        type: "POST",
        datatype: "json"}).done(
-       (err,data) => {
+       (data,err) => {
           if (err) console.log("Err&data",err)
           console.log(data)
        })
